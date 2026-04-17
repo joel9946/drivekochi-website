@@ -475,7 +475,7 @@ const ImageSequenceHero = () => {
   useEffect(() => {
     for (let i = 1; i <= TOTAL_FRAMES; i++) {
         const img = new Image();
-        img.src = `/ezgif-66323bf814042019-jpg/ezgif-frame-${i.toString().padStart(3, '0')}.jpg`;
+        img.src = `${import.meta.env.BASE_URL}ezgif-66323bf814042019-jpg/ezgif-frame-${i.toString().padStart(3, '0')}.jpg`;
     }
     const interval = setInterval(() => {
         setFrameIndex((prev) => (prev % TOTAL_FRAMES) + 1);
@@ -485,7 +485,7 @@ const ImageSequenceHero = () => {
 
   return (
     <img 
-      src={`/ezgif-66323bf814042019-jpg/ezgif-frame-${frameIndex.toString().padStart(3, '0')}.jpg`}
+      src={`${import.meta.env.BASE_URL}ezgif-66323bf814042019-jpg/ezgif-frame-${frameIndex.toString().padStart(3, '0')}.jpg`}
       alt="Hero cinematic background"
       style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0, opacity: 0, animation: "heroFadeIn 1.5s ease 0.3s forwards" }}
     />
@@ -512,8 +512,8 @@ const Hero = () => {
     <section style={{ position: 'relative', width: '100%', minHeight: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       
       {/* Required Video Element HTML Structure implementation (Hidden / Dummy Src as per checklist) */}
-      <video loop muted autoPlay playsInline poster="/hero-poster.jpg" style={{ display: 'none', position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}>
-         <source src="/hero-video.mp4" type="video/mp4" />
+      <video loop muted autoPlay playsInline poster={`${import.meta.env.BASE_URL}hero-poster.jpg`} style={{ display: 'none', position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}>
+         <source src={`${import.meta.env.BASE_URL}hero-video.mp4`} type="video/mp4" />
       </video>
 
       {/* Layer 1: Actual Image Sequence renderer */}
